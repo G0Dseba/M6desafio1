@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+  .navbar-blockbuster {
+    background-color: #004080;
+  }
+  
+  .navbar-blockbuster .navbar-brand,
+  .navbar-blockbuster .nav-link {
+    color: #FFD700;
+  }
+  
+  .navbar-blockbuster .nav-link:hover {
+    color: #FFFFFF;
+  }
+
+  body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #titulo-blockbuster {
+    color: #FFD700;
+  }
+  
+  #titulo-blockbuster span{
+    color: #004080;
+  }
+  
+  
+  

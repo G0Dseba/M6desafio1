@@ -1,16 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
 <% content_for :title, "Arriendos" %>
 
-<h1>Arriendos</h1>
+<div class="container mt-4">
+  <h1 id="titulo-blockbuster" class="mb-4">Arriendos</h1>
 
-<div id="arriendos">
-  <% @arriendos.each do |arriendo| %>
-    <%= render arriendo %>
-    <p>
-      <%= link_to "Show this arriendo", arriendo %>
-    </p>
-  <% end %>
+  <%= link_to 'Nuevo Arriendo', new_arriendo_path, class: 'btn btn-warning' %>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Película</th>
+        <th>Cliente</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @arriendos.each do |arriendo| %>
+        <tr>
+          <td><%= arriendo.pelicula.titulo %></td>
+          <td><%= arriendo.cliente.nombre %></td>
+          <td>
+            <%= link_to 'Mostrar', arriendo, class: 'btn btn-link text-warning' %>
+            <%= link_to 'Editar', edit_arriendo_path(arriendo), class: 'btn btn-link text-warning' %>
+            <%= link_to 'Eliminar', arriendo, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-warning' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New arriendo", new_arriendo_path %>

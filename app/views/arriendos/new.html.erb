@@ -1,11 +1,11 @@
-<% content_for :title, "New arriendo" %>
+<% content_for :title, "Nuevo Arriendo" %>
 
-<h1>New arriendo</h1>
+<div class="container mt-4">
+  <h1 class="mb-4">Nuevo Arriendo</h1>
 
-<%= render "form", arriendo: @arriendo %>
+  <%= render "form", arriendo: @arriendo %>
 
-<br>
-
-<div>
-  <%= link_to "Back to arriendos", arriendos_path %>
+  <div class="mt-3">
+    <%= link_to "Volver a Arriendos", arriendos_path, class: 'btn btn-secondary' %>
+  </div>
 </div>

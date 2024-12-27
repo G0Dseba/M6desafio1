@@ -1,27 +1,35 @@
-<h1>Clientes</h1>
-<%= link_to 'Nuevo Cliente', new_cliente_path, class: 'btn btn-warning' %>
+<p class="text-success"><%= notice %></p>
 
-<table class="table mt-4">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Película Arrendada</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @clientes.each do |cliente| %>
+<% content_for :title, "Clientes" %>
+
+<div class="container mt-4">
+  <h1 id="titulo-blockbuster" class="mb-4">Clientes</h1>
+
+  <%= link_to 'Nuevo Cliente', new_cliente_path, class: 'btn btn-warning' %>
+
+  <table class="table mt-4">
+    <thead>
       <tr>
-        <td><%= cliente.nombre %></td>
-        <td>
-          <%= cliente.arriendo ? cliente.arriendo.pelicula.titulo : 'No tiene' %>
-        </td>
-        <td>
-          <%= link_to 'Mostrar', cliente, class: 'btn btn-link text-warning' %>
-          <%= link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-link text-warning' %>
-          <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-warning' %>
-        </td>
+        <th>Nombre</th>
+        <th>Película Arrendada</th>
+        <th>Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @clientes.each do |cliente| %>
+        <tr>
+          <td><%= cliente.nombre %></td>
+          <td>
+            <%= cliente.arriendo ? cliente.arriendo.pelicula.titulo : 'No tiene' %>
+          </td>
+          <td>
+            <%= link_to 'Mostrar', cliente, class: 'btn btn-link text-warning' %>
+            <%= link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-link text-warning' %>
+            <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-warning' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

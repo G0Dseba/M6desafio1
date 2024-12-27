@@ -1,7 +1,7 @@
-<%= form_with(model: arriendo) do |form| %>
+<%= form_with(model: arriendo, local: true, class: 'mb-4') do |form| %>
   <% if arriendo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(arriendo.errors.count, "error") %> prohibited this arriendo from being saved:</h2>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(arriendo.errors.count, "error") %> impidieron guardar este arriendo:</h2>
 
       <ul>
         <% arriendo.errors.each do |error| %>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :pelicula_id, style: "display: block" %>
-    <%= form.text_field :pelicula_id %>
+  <div class="mb-3">
+    <%= form.label :pelicula_id, class: 'form-label' %>
+    <%= form.collection_select :pelicula_id, Pelicula.all, :id, :titulo, { include_blank: "Seleccionar Película" }, { class: 'form-control' } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cliente_id, class: 'form-label' %>
+    <%= form.collection_select :cliente_id, Cliente.all, :id, :nombre, { include_blank: "Seleccionar Cliente" }, { class: 'form-control' } %>
   </div>
 
   <div>
-    <%= form.label :cliente_id, style: "display: block" %>
-    <%= form.text_field :cliente_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit 'Guardar', class: 'btn btn-dark' %>
   </div>
 <% end %>

@@ -1,11 +1,11 @@
-<% content_for :title, "New pelicula" %>
+<% content_for :title, "Nueva Película" %>
 
-<h1>New pelicula</h1>
+<div class="container mt-4">
+  <h1 class="mb-4">Nueva Película</h1>
 
-<%= render "form", pelicula: @pelicula %>
+  <%= render "form", pelicula: @pelicula %>
 
-<br>
-
-<div>
-  <%= link_to "Back to peliculas", peliculas_path %>
+  <div class="mt-3">
+    <%= link_to "Volver a Películas", peliculas_path, class: 'btn btn-secondary' %>
+  </div>
 </div>
