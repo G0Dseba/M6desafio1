@@ -1,0 +1,28 @@
+<%= form_with(model: pelicula, local: true, class: 'mb-4') do |form| %>
+  <% if pelicula.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(pelicula.errors.count, "error") %> impidieron guardar esta película:</h2>
+
+      <ul>
+        <% pelicula.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :titulo, class: 'form-label' %>
+    <%= form.text_field :titulo, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cliente_id, "Asignar Cliente", class: 'form-label' %>
+    <%= form.collection_select :cliente_id, Cliente.all, :id, :nombre, { include_blank: "Seleccionar Cliente" }, { class: 'form-control' } %>
+  </div>
+
+  <div>
+    <%= form.submit 'Guardar', class: 'btn btn-dark' %>
+  </div>
+<% end %>
+

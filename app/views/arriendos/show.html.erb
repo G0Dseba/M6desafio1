@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @arriendo %>
+
+<div>
+  <%= link_to "Edit this arriendo", edit_arriendo_path(@arriendo) %> |
+  <%= link_to "Back to arriendos", arriendos_path %>
+
+  <%= button_to "Destroy this arriendo", @arriendo, method: :delete %>
+</div>

@@ -1,0 +1,23 @@
+<%= form_with(model: cliente, local: true, class: 'mb-4') do |form| %>
+  <% if cliente.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(cliente.errors.count, "error") %> impidieron guardar este cliente:</h2>
+
+      <ul>
+        <% cliente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :nombre, class: 'form-label' %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.submit 'Guardar', class: 'btn btn-dark' %>
+  </div>
+<% end %>
+

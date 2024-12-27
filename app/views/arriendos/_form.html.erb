@@ -1,0 +1,27 @@
+<%= form_with(model: arriendo) do |form| %>
+  <% if arriendo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(arriendo.errors.count, "error") %> prohibited this arriendo from being saved:</h2>
+
+      <ul>
+        <% arriendo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pelicula_id, style: "display: block" %>
+    <%= form.text_field :pelicula_id %>
+  </div>
+
+  <div>
+    <%= form.label :cliente_id, style: "display: block" %>
+    <%= form.text_field :cliente_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
